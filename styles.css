@@ -1,69 +1,39 @@
-*{
+* {
     margin: 0;
     padding:0;
-    font: family 0;
+    font-family: sans-serif;
     box-sizing: border-box;
 }
 
 body {
-    container: flex;
     background: linear-gradient(to bottom, #ffff00, #00ff00); /* Gradient from yellow to green */
     /* Fallback color if gradients are not supported */
     background-color: #3ebdef; /* Old browsers */
     background: -moz-linear-gradient(left, #15c8b6, #1eff00); /* FF 3.6-15 */
     background: -webkit-linear-gradient(left, #16bbc4, #e4e4e4); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #28e0d1, #b5b80b);
-}
-
-
-.Top h1{
-    display: flexbox;
-    text-align: center;
-    font-size: 100px;
-    color: white;
-    text-shadow: 5px 4px 8px rgba(0, 0, 0, 0.5);
-    padding: vh;
-
-
-}
-.Top p{
-    font-size: 20px;
-    text-align: center;
-    padding-top: 5vh;
-    color: #ffffff;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    min-height: 100vh; /* Ensure full viewport height */
 }
 
 .Top {
-    position: fixed;
-    top: 50%; /* Initially center vertically */
-    left: 0;
+    text-align: center;
     padding: 20px;
-    transform: translateY(-50%); /* Adjust position based on height */
-    z-index: 1000; /* Ensure it's above other content */
+    color: white;
+    text-shadow: 5px 4px 8px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 .container {
     background-size: cover;
     width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end; /* Align to the right side */
-    padding-right: 100px; /* Add suitable padding from the right side */
-    flex-wrap: wrap;
+    padding: 100px 20px; /* Adjusted padding */
 }
-
-/* Media query to adjust positioning when the window width is smaller */
-@media screen and (max-width: 768px) {
-    .Top {
-        display: none; /* Hide the .Top section */
-    }
-    
-    .container {
-        padding-right: 20px; /* Adjust padding to accommodate the hidden .Top section */
-    }
-}
-
 
 .music-player{
     background: linear-gradient(to bottom, #00ff00, #ffff00);
@@ -115,7 +85,7 @@ Img{
     -webkit-appearance: none;
     width: 100%;
     height: 6px;
-    background: #000000;
+    background: #db8181;
     border-radius: 4px;
     cursor: pointer;
     margin: 40px 0;
@@ -131,19 +101,20 @@ Img{
     box-shadow: 0 5px 5px rgba(255, 26, 26, 0.22)
 }
 
-.controls{
+
+.controls {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
-.controls div{
-    width: 60px;
-    height: 60px ;
-    margin:20px ;
-    background:#fff;
-    display: inline-flex;
-    align-items:center ;
+.controls div {
+    width: 50px; /* Adjusted width */
+    height: 50px; /* Adjusted height */
+    margin: 10px; /* Adjusted margin */
+    background: #fff;
+    display: flex;
+    align-items: center;
     justify-content: center;
     border-radius: 50%;
     color: #06e919;
@@ -151,8 +122,8 @@ Img{
     cursor: pointer;
 }
 
-.controls div:nth-child(2){
-    transform: scale(1.5); 
+.controls div:nth-child(2) {
+    transform: scale(1.2); /* Adjusted scale */
     background: #26aa14;
     color: #fff;
 }
@@ -185,16 +156,17 @@ Img{
     border-radius: 50px;
 }
 
-
-#songListMenu{
-    width: 80%; /* Adjust the width as per your preference */
-            margin: auto;
-            background-color: rgba(255, 255, 255, 0.7); /* Adjust transparency here */
-            padding: 20px;
-            border-radius: 20px; /* Optional: Add rounded corners for a softer look */
-            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+#songListMenu {
+    width: 90%; /* Adjust the width */
+    max-width: 400px; /* Added maximum width */
+    margin: 20px auto; /* Centered the menu horizontally */
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
 }
-.List{
+
+.List {
     font-size: large;
 }
 
