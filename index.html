@@ -65,9 +65,10 @@
     <div class="container">
         <div class="music-player">
             <nav>
-                <div class="circle" onclick="">
-                    <i class="fa-solid fa-angle-left"></i>
+                <div class="circle" onclick="showCreatorText()">
+                    <i class="fa-solid fa-person"></i>
                 </div>
+                
                 <div class="circle" onclick="toggleSongListMenu()">
                     <i class="fa-solid fa-bars"></i>
                     
@@ -204,14 +205,34 @@
     }
 }
 
+
+function showCreatorText() {
+    var creatorText = document.createElement("div");
+    creatorText.textContent = "Creator Amit Kumar Das";
+    creatorText.classList.add("creator-text");
+    document.body.appendChild(creatorText);
+
+    // Add animation class
+    creatorText.classList.add("fade-in");
+
+    // Automatically disappear after 3 seconds
+    setTimeout(function() {
+        creatorText.classList.add("fade-out");
+        // Remove the element from the DOM after the animation ends
+        creatorText.addEventListener("animationend", function() {
+            document.body.removeChild(creatorText);
+        });
+    }, 5000);
+}
+
     
     </script>
     <div id="songListMenu">
-        <h2>Song List</h2>
+        <h2 style="font-size: 13ch;">Song List</h2>
         <ol class="List">
-            <li>Radha Ramanam Hare Hare</li>
-            <li>Tum Prem Ho</li>
-            <li>Radha Krishna</li>
+            <li style="background-color: #f0f0f0;">Radha Ramanam Hare Hare</li>
+            <li style="background-color:  pink;">Tum Prem Ho</li>
+            <li style="background-color: orange;">Radha Krishna</li>
         </ol>
     </div>
     
