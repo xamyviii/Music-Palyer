@@ -34,8 +34,9 @@ body {
     width: 90%; /* Adjusted width for mobile viewers */
     max-width: 600px; /* Added maximum width for larger screens */
     padding: 20px; /* Adjusted padding */
-    margin: auto; /* Centered horizontally */
+    margin: 20px auto; /* Centered horizontally with some top and bottom margin */
 }
+
 
 .music-player{
     width: 400px;
@@ -223,5 +224,13 @@ nav .circle{
     }
     to {
         opacity: 0;
+    }
+}
+
+
+/* Add media query for screens smaller than 600px */
+@media only screen and (max-width: 600px) {
+    .music-player {
+        width: 90%; /* Adjust the width as per your preference for smaller screens */
     }
 }
