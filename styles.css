@@ -12,7 +12,7 @@ body {
     background: -moz-linear-gradient(left, #15c8b6, #1eff00); /* FF 3.6-15 */
     background: -webkit-linear-gradient(left, #16bbc4, #e4e4e4); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #28e0d1, #b5b80b);
-    display: flex;
+    container: flex;
     justify-content: center; /* Center content horizontally */
     align-items: center; /* Center content vertically */
     min-height: 100vh; /* Ensure full viewport height */
@@ -20,30 +20,25 @@ body {
 
 .Top {
     text-align: center;
-    padding: 20px;
     color: white;
     text-shadow: 5px 4px 8px rgba(0, 0, 0, 0.5);
-    position: absolute;
+    display: flexbox;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    font-size: 1vh;
 }
 
 .container {
+    container: flex;
     background-size: cover;
-    width: 90%; /* Adjusted width for mobile viewers */
-    max-width: 600px; /* Added maximum width for larger screens */
+    width: auto; /* Adjusted width for mobile viewers */
+    max-width: auto
+    ; /* Added maximum width for larger screens */
     padding: 20px; /* Adjusted padding */
-    margin: 20px auto; /* Centered horizontally with some top and bottom margin */
+    margin: 50px auto; /* Centered horizontally with some top and bottom margin */
 }
 
-
-.music-player{
-    width: 400px;
-    background-color: rgba(255, 255, 255, 0.9); /* Adjusted transparency */
-    text-align: center;
-    border-radius: 30px;
-}
 
 nav{
     display: flex;
