@@ -1,193 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/9bf5036359.js" crossorigin="anonymous"></script>
-    
-</head>
-<body>
-    
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/9bf5036359.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <div class="Top">
-        <h1>BHAKTI RAS</h1>
-       
+      <h1>BHAKTI RAS</h1>
     </div>
     <div class="container">
-        <div class="music-player">
-            <nav>
-                <div class="circle" onclick="showCreatorText()">
-                    <i class="fa-solid fa-person"></i>
-                </div>
-                
-                <div class="circle" onclick="toggleSongListMenu()">
-                    <i class="fa-solid fa-bars"></i>
-                    
-                </div>
-                
-                
-            </nav>
-            
-            <div class="Img" >
-                <img src="Media/2.png " alt="Song-Image">
-            </div>
-            <h1 id="song-title">Radha Ramanam Hare Hare</h1>
-            <p id="song-artist">By Indresh Upadhyay</p>
-            <!-- Hidden audio element -->
-            <audio id="song" controls>
-                <!-- sources will be added dynamically -->
-            </audio>
-            <!-- Custom progress bar with time indicators -->
-            <div class="progress-container">
-                <div id="start-time">0:00</div>
-                <input type="range" value="0" id="progress">
-                <div id="end-time">0:00</div>
-            </div>
-            <!-- Custom play/pause button -->
-            <div class="controls">
-                <div class="circle" id="backward">
-                    <i class="fa-solid fa-backward" onclick="changeSong(-1)"></i>
-                </div>
-                <div class="circle" onclick="playPause()">
-                    <i class="fa-solid fa-play" id="ctrlIcon"></i>
-                </div>
-                <div class="circle" id="forward">
-                    <i class="fa-solid fa-forward" onclick="changeSong(1)"></i>
-                </div>
-            </div>
+      <div class="music-player">
+        <nav>
+          <div class="circle" onclick="showCreatorText()">
+            <i class="fa-solid fa-person"></i>
+          </div>
+
+          <div class="circle" onclick="toggleSongListMenu()">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </nav>
+
+        <div class="Img">
+          <img src="Media/2.png " alt="Song-Image" />
         </div>
+        <h1 id="song-title">Radha Ramanam Hare Hare</h1>
+        <p id="song-artist">By Indresh Upadhyay</p>
+        <!-- Hidden audio element -->
+        <audio id="song" controls>
+          <!-- sources will be added dynamically -->
+        </audio>
+        <!-- Custom progress bar with time indicators -->
+        <div class="progress-container">
+          <div id="start-time">0:00</div>
+          <input type="range" value="0" id="progress" />
+          <div id="end-time">0:00</div>
+        </div>
+        <!-- Custom play/pause button -->
+        <div class="controls">
+          <div class="circle" id="backward">
+            <i class="fa-solid fa-backward" onclick="changeSong(-1)"></i>
+          </div>
+          <div class="circle" onclick="playPause()">
+            <i class="fa-solid fa-play" id="ctrlIcon"></i>
+          </div>
+          <div class="circle" id="forward">
+            <i class="fa-solid fa-forward" onclick="changeSong(1)"></i>
+          </div>
+        </div>
+      </div>
     </div>
-    
-    
+
     <script>
-        let progress = document.getElementById("progress");
-        let song = document.getElementById("song");
-        let ctrlIcon = document.getElementById("ctrlIcon");
-        let startTime = document.getElementById("start-time");
-        let endTime = document.getElementById("end-time");
-        let songTitle = document.getElementById("song-title");
-        let songArtist = document.getElementById("song-artist");
-        let backward = document.getElementById("backward");
-        let forward = document.getElementById("forward");
-        
-        let songs = [
-            {
-                title: "Radha Ramanam Hare Hare",
-                artist: "Indresh Upadhyay",
-                file: "Media/Radha Ramanam Hare Hare.mp3"
-            },
-            {
-                title: "Tum Prem Ho",
-                artist: "Mohit Lalwani x Surya Raj Kamal",
-                file: "Media/Tum Prem Ho.mp3"
-            },
-            {
-                title: "Radha Krishna",
-                artist: "Mohit lalwani",
-                file: "Media/Radha Krishna.mp3"
-            },
-            {
-                title: "Tum Prem Ho",
-                artist: "Mohit Lalwani x Surya Raj Kamal",
-                file: "Media/Tum Prem Ho.mp3"
-            },
-            // Add more songs here
-        ];
+      let progress = document.getElementById("progress");
+      let song = document.getElementById("song");
+      let ctrlIcon = document.getElementById("ctrlIcon");
+      let startTime = document.getElementById("start-time");
+      let endTime = document.getElementById("end-time");
+      let songTitle = document.getElementById("song-title");
+      let songArtist = document.getElementById("song-artist");
+      let backward = document.getElementById("backward");
+      let forward = document.getElementById("forward");
 
-        let currentSongIndex = 0;
+      let songs = [
+        {
+          title: "Radha Ramanam Hare Hare",
+          artist: "Indresh Upadhyay",
+          file: "Media/Radha Ramanam Hare Hare.mp3",
+        },
+        {
+          title: "Tum Prem Ho",
+          artist: "Mohit Lalwani x Surya Raj Kamal",
+          file: "Media/Tum Prem Ho.mp3",
+        },
+        {
+          title: "Radha Krishna",
+          artist: "Mohit lalwani",
+          file: "Media/Radha Krishna.mp3",
+        },
+        {
+          title: "Tum Prem Ho",
+          artist: "Mohit Lalwani x Surya Raj Kamal",
+          file: "Media/Tum Prem Ho.mp3",
+        },
+        // Add more songs here
+      ];
 
-        function loadSong(index) {
-            let songInfo = songs[index];
-            songTitle.innerText = songInfo.title;
-            songArtist.innerText = songInfo.artist;
-            song.src = songInfo.file;
-            song.load();
-            progress.value = 0;
-            endTime.innerText = formatTime(song.duration);
-            ctrlIcon.classList.remove("fa-pause");
-            ctrlIcon.classList.add("fa-play");
+      let currentSongIndex = 0;
+
+      function loadSong(index) {
+        let songInfo = songs[index];
+        songTitle.innerText = songInfo.title;
+        songArtist.innerText = songInfo.artist;
+        song.src = songInfo.file;
+        song.load();
+        progress.value = 0;
+        endTime.innerText = formatTime(song.duration);
+        ctrlIcon.classList.remove("fa-pause");
+        ctrlIcon.classList.add("fa-play");
+      }
+
+      function playPause() {
+        if (song.paused) {
+          song.play();
+          ctrlIcon.classList.remove("fa-play");
+          ctrlIcon.classList.add("fa-pause");
+        } else {
+          song.pause();
+          ctrlIcon.classList.remove("fa-pause");
+          ctrlIcon.classList.add("fa-play");
         }
+      }
 
-        function playPause() {
-            if (song.paused) {
-                song.play();
-                ctrlIcon.classList.remove("fa-play");
-                ctrlIcon.classList.add("fa-pause");
-            } else {
-                song.pause();
-                ctrlIcon.classList.remove("fa-pause");
-                ctrlIcon.classList.add("fa-play");
-            }
-        }
-
-        function changeSong(step) {
-            currentSongIndex = (currentSongIndex + step + songs.length) % songs.length;
-            loadSong(currentSongIndex);
-            playPause(); // Automatically start playing the new song
-        }
-
-        song.onloadedmetadata = function() {
-            progress.max = song.duration;
-            endTime.innerText = formatTime(song.duration);
-        }
-
-        song.ontimeupdate = function() {
-            progress.value = song.currentTime;
-            startTime.innerText = formatTime(song.currentTime);
-        }
-
-        function formatTime(time) {
-            let minutes = Math.floor(time / 60);
-            let seconds = Math.floor(time % 60);
-            if (seconds < 10) {
-                seconds = "0" + seconds;
-            }
-            return minutes + ":" + seconds;
-        }
-
+      function changeSong(step) {
+        currentSongIndex =
+          (currentSongIndex + step + songs.length) % songs.length;
         loadSong(currentSongIndex);
+        playPause(); // Automatically start playing the new song
+      }
 
-        function toggleSongListMenu() {
-    var songListMenu = document.getElementById("songListMenu");
-    if (songListMenu.style.display === "none" || songListMenu.style.display === "") {
-        songListMenu.style.display = "block";
-    } else {
-        songListMenu.style.display = "none";
-    }
-}
+      song.onloadedmetadata = function () {
+        progress.max = song.duration;
+        endTime.innerText = formatTime(song.duration);
+      };
 
+      song.ontimeupdate = function () {
+        progress.value = song.currentTime;
+        startTime.innerText = formatTime(song.currentTime);
+      };
 
+      function formatTime(time) {
+        let minutes = Math.floor(time / 60);
+        let seconds = Math.floor(time % 60);
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
+        return minutes + ":" + seconds;
+      }
 
-function showCreatorText() {
-    var creatorText = document.createElement("div");
-    creatorText.textContent = "Creator Amit Kumar Das";
-    creatorText.classList.add("creator-text");
-    document.body.appendChild(creatorText);
+      loadSong(currentSongIndex);
 
-    // Add animation class
-    creatorText.classList.add("fade-in");
+      function toggleSongListMenu() {
+        var songListMenu = document.getElementById("songListMenu");
+        if (
+          songListMenu.style.display === "none" ||
+          songListMenu.style.display === ""
+        ) {
+          songListMenu.style.display = "block";
+        } else {
+          songListMenu.style.display = "none";
+        }
+      }
 
-    // Automatically disappear after 3 seconds
-    setTimeout(function() {
-        creatorText.classList.add("fade-out");
-        // Remove the element from the DOM after the animation ends
-        creatorText.addEventListener("animationend", function() {
+      function showCreatorText() {
+        var creatorText = document.createElement("div");
+        creatorText.textContent = "Creator Amit Kumar Das";
+        creatorText.classList.add("creator-text");
+        document.body.appendChild(creatorText);
+
+        // Add animation class
+        creatorText.classList.add("fade-in");
+
+        // Automatically disappear after 3 seconds
+        setTimeout(function () {
+          creatorText.classList.add("fade-out");
+          // Remove the element from the DOM after the animation ends
+          creatorText.addEventListener("animationend", function () {
             document.body.removeChild(creatorText);
-        });
-    }, 5000);
-}
-
-    
+          });
+        }, 5000);
+      }
     </script>
     <div id="songListMenu">
-        <h2 style="font-size: 13ch;">Song List</h2>
-        <ol class="List">
-            <li style="background-color: #f0f0f0;">Radha Ramanam Hare Hare</li>
-            <li style="background-color:  pink;">Tum Prem Ho</li>
-            <li style="background-color: orange;">Radha Krishna</li>
-        </ol>
+      <h2 style="font-size: 13ch">Song List</h2>
+      <ol class="List">
+        <li style="background-color: #f0f0f0">Radha Ramanam Hare Hare</li>
+        <li style="background-color: pink">Tum Prem Ho</li>
+        <li style="background-color: orange">Radha Krishna</li>
+      </ol>
     </div>
-    
-</body>
+  </body>
 </html>
