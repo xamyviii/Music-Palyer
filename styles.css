@@ -31,10 +31,10 @@ body {
 
 .container {
     background-size: cover;
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
+    width: 90%; /* Adjusted width for mobile viewers */
+    max-width: 600px; /* Added maximum width for larger screens */
+    padding: 20px; /* Adjusted padding */
+    margin: auto; /* Centered horizontally */
 }
 
 .music-player{
@@ -134,6 +134,18 @@ nav .circle{
     color: #fff;
 }
 
+
+#songListMenu {
+    display: none; /* Initially hidden */
+    width: 90%; /* Adjust the width */
+    max-width: 400px; /* Added maximum width */
+    margin: 20px auto; /* Centered the menu horizontally */
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+}
+
 .song-list-dropdown {
     position: absolute;
     top: 60px; /* Adjust as needed */
@@ -143,7 +155,7 @@ nav .circle{
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
-    display: none;
+    display: none; /* Initially hidden */
     z-index: 1000; /* Ensure it appears above other elements */
 }
 
@@ -171,6 +183,7 @@ nav .circle{
     border-radius: 20px;
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
 }
+
 
 .List {
     font-size: large;
